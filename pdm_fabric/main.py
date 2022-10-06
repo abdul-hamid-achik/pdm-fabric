@@ -11,7 +11,7 @@ from pdm.cli.options import skip_option
 from pdm.cli.utils import check_project_file
 
 
-class FabricCommand(RunCommand):
+class Command(RunCommand):
   OPTIONS = []
   COMMAND_PREFIX = ['fab']
 
@@ -30,7 +30,6 @@ class FabricCommand(RunCommand):
     check_project_file(project)
     hooks = HookManager(project, options.skip)
     runner = TaskRunner(project, hooks=hooks)
-    sys.exit(runner.run(options.command, self.COMMAND_PREFIX[1:] + options.args))
 
     hooks.try_emit("pre_run", script=options.command, args=options.args)
     exit_code = runner.run(options.command, self.COMMAND_PREFIX[1:] + options.args)
@@ -38,5 +37,12 @@ class FabricCommand(RunCommand):
     sys.exit(exit_code)
 
 
+class FabCommand(Command):
+  COMMAND_PREFIX = ['fab']
+
+
+class FabricCommand(Command):
+  COMMAND_PREFIX = ['fabric']
 def reg_commands(core):
-  core.register_command(FabricCommand, "fab")
+  core.register_command(FabCommand, "fab")
+  core.register_command(FabricCommand, "fabric")
