@@ -1,6 +1,6 @@
 [project]
 name = "pdm-fabric"
-version = "0.0.1"
+version = "0.0.2"
 description = "pdm shortcuts for Fabric projects"
 authors = [
     {name = "Abdul Hamid", email = "abdulachik@icloud.com"},
@@ -26,6 +26,14 @@ dev = [
 _.env_file = ".env"
 format = "yapf -rpi -vv ."
 check_format = "yapf -rpd ."
+
+[[tool.pdm.autoexport]]
+filename = "requirements.txt"
+without-hashes = true
+
+[[tool.pdm.autoexport]]
+filename = "setup.py"
+format = "setuppy"
 
 [build-system]
 requires = ["pdm-pep517"]
