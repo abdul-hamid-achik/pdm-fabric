@@ -1,6 +1,6 @@
 [project]
 name = "pdm-fabric"
-version = "0.0.3"
+version = "0.0.4"
 description = "pdm shortcuts for Fabric projects"
 authors = [
     {name = "Abdul Hamid", email = "abdulachik@icloud.com"},
