@@ -1,6 +1,6 @@
 [project]
 name = "pdm-fabric"
-version = "0.0.2"
+version = "0.0.3"
 description = "pdm shortcuts for Fabric projects"
 authors = [
     {name = "Abdul Hamid", email = "abdulachik@icloud.com"},
@@ -20,6 +20,7 @@ homepage = "https://github.com/sicksid/pdm-fabric"
 dev = [
     "yapf>=0.32.0",
     "toml>=0.10.2",
+    "fabric>=2.7.1",
 ]
 
 [tool.pdm.scripts]
