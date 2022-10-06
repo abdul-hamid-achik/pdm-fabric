@@ -30,9 +30,6 @@ class FabricCommand(RunCommand):
     check_project_file(project)
     hooks = HookManager(project, options.skip)
     runner = TaskRunner(project, hooks=hooks)
-    if options.site_packages:
-      runner.global_options.update({"site_packages": options.site_packages})
-
     sys.exit(runner.run(options.command, self.COMMAND_PREFIX[1:] + options.args))
 
     hooks.try_emit("pre_run", script=options.command, args=options.args)
